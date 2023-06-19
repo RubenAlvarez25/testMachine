@@ -10,6 +10,9 @@ import { Error } from '../pages/interPages/Error'
 import { TestShortAnswer } from '../pages/testShortAnswer/TestShortAnswer'
 import { TestOptionsAnswer } from '../pages/testOptionsAnswer/TestOptionsAnswer'
 import { TestOptionsImage } from '../pages/testOptionsImageAnswer/TestOptionsImage'
+import { ShortAnswerResults } from '../pages/showResults/ShortAnswerResults'
+import { OptionAnswerResults } from '../pages/showResults/OptionAnswerResults'
+import { OptionImageResults } from '../pages/showResults/OptionImageResults'
 
 
 export const AppRoutes = () => {
@@ -28,9 +31,15 @@ export const AppRoutes = () => {
     <Route path='/CreateQuestionOption/:test_id/:test_name' element={<CreateQuestionOption />} />
    
     {/* Test cumpliment */}
-    <Route path='/TestShortAnswer/:test_id' element={<TestShortAnswer />}/>
-    <Route path='/TestOptionsAnswer/:test_id' element={<TestOptionsAnswer />}/>
-    <Route path='/TestOptionsImage/:test_id' element={<TestOptionsImage />}/>
+    <Route path='/TestShortAnswer/:test_id/:test_name' element={<TestShortAnswer />}/>
+    <Route path='/TestOptionsAnswer/:test_id/:test_name' element={<TestOptionsAnswer />}/>
+    <Route path='/TestOptionsImage/:test_id/:test_name' element={<TestOptionsImage />}/>
+
+    {/* Show results */}
+    <Route path='/ShortAnswerResults/:test_id/:user_id' element ={<ShortAnswerResults />} />
+    <Route path='/OptionAnswerResults/:test_id/:user_id' element ={<OptionAnswerResults />} />
+    <Route path='/OptionImageResults/:test_id/:user_id' element ={<OptionImageResults />} />
+    
     </Routes>
     </BrowserRouter>
   

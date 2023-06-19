@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+const initialValues = {
+  user_id: 1
+}
+
 export const IndexPage = () => {
     const navigate = useNavigate()
     const [tests, setTests] = useState([])
+    const [user, setUser] = useState(initialValues)
 
     useEffect(() => {
         axios
@@ -47,14 +52,18 @@ export const IndexPage = () => {
             <div key={i} className="col-6 d-flex flex-column justify-content-center align-items-center p-1">
                <h2> {e.test_name} </h2>
             </div>
-
+          {/* BUTTON GO TO TEST */}
              <div className="col-6 d-flex justify-content-evenly align-items-center p-1">
-            <button onClick={()=>{e.type === 1 ? navigate (`/TestShortAnswer/${e?.test_id}`):e?.type === 2 ? navigate (`/TestOptionsAnswer/${e.test_id}`): navigate(`/TestOptionsImage/${e?.test_id}`)}}> Go to test </button>
+            <button onClick={()=>{e.type === 1 ? navigate (`/TestShortAnswer/${e?.test_id}/${e?.test_name}`):e?.type === 2 ? navigate (`/TestOptionsAnswer/${e.test_id}/${e?.test_name}`): navigate(`/TestOptionsImage/${e?.test_id}/${e?.test_name}`)}}> Go to test </button>
+          {/* BUTTON GO TO RESULT */}
+            <button onClick={()=>{e.type === 1 ? navigate (`/ShortAnswerResults/${e?.test_id}/${user.user_id}`):e?.type === 2 ? navigate (`/OptionAnswerResults/${e.test_id}/${user.user_id}`): navigate(`/OptionImageResults/${e?.test_id}/${user.user_id}`)}}> Go to resuts </button>
+          {/* DEL TEST */}
             <button onClick={()=>delTest(e.test_id)}>X</button>
             </div>   
             <hr />
             </>
          )})}
+         
         </div>
     </div>
    </>
