@@ -7,6 +7,9 @@ import { CreateQuestionOption } from '../pages/createQuestionOption/CreateQuesti
 import { IndexPage } from '../pages/indexPage/IndexPage'
 import { Success } from '../pages/interPages/Success'
 import { Error } from '../pages/interPages/Error'
+import { TestShortAnswer } from '../pages/testShortAnswer/TestShortAnswer'
+import { TestOptionsAnswer } from '../pages/testOptionsAnswer/TestOptionsAnswer'
+import { TestOptionsImage } from '../pages/testOptionsImageAnswer/TestOptionsImage'
 
 
 export const AppRoutes = () => {
@@ -16,11 +19,18 @@ export const AppRoutes = () => {
     <Routes>
     <Route path='/'element={<IndexPage />} />
     <Route path='*'element={<Error />} />
+    <Route path='/Success' element={<Success />} />
+     
+    {/* Test creation */}
     <Route path='/createTest' element={<CreateTest />} />
     <Route path='/createQuestionText/:test_id/:test_name' element={<CreateQuestionText />} />
     <Route path='/CreatePhotoQuestion/:test_id/:test_name' element={<CreatePhotoQuestion />} />
     <Route path='/CreateQuestionOption/:test_id/:test_name' element={<CreateQuestionOption />} />
-    <Route path='/Success' element={<Success />} />
+   
+    {/* Test cumpliment */}
+    <Route path='/TestShortAnswer/:test_id' element={<TestShortAnswer />}/>
+    <Route path='/TestOptionsAnswer/:test_id' element={<TestOptionsAnswer />}/>
+    <Route path='/TestOptionsImage/:test_id' element={<TestOptionsImage />}/>
     </Routes>
     </BrowserRouter>
   
