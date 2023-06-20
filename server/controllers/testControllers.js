@@ -68,7 +68,7 @@ class TestControllers {
   deleteTest = (req, res) => {
     let test_id = req.params.test_id;
 
-    let sql = `UPDATE test SET is_deleted = 1 WHERE test_id = "${test_id}"`;
+    let sql = `DELETE FROM test WHERE test_id = "${test_id}"`;
 
     connection.query(sql, (error, result) => {
       error ? res.status(400).json({ error }) : res.status(200).json(result);

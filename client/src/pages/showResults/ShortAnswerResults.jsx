@@ -13,7 +13,6 @@ export const ShortAnswerResults = () => {
   const navigate = useNavigate()
   
   
- 
   useEffect(() => {
     axios
     .get(`http://localhost:4000/test/oneTest/${test_id}`)

@@ -24,12 +24,12 @@ class QuestionControllers {
   guardarOpciones = (options, test_id) => {
     if (options != undefined) {
       options.forEach((e) => {
-        if (e.fabric_id === undefined) {
-          e.fabric_id = null;
+        if (e.photo_question_id === undefined) {
+          e.photo_question_id = null;
         } else {
-          e.fabric_id = parseInt(e.fabric_id);
+          e.photo_question_id = parseInt(e.photo_question_id);
         }
-        let sqlOption = `INSERT INTO question_option (test_id,question_id,question_option_id,option_test_name,fabric_id) VALUES (${test_id},${e.question_id},${e.question_option_id},"${e.option_test_name}",${e.fabric_id})`;
+        let sqlOption = `INSERT INTO question_option (test_id,question_id,question_option_id,option_test_name,photo_question_id) VALUES (${test_id},${e.question_id},${e.question_option_id},"${e.option_test_name}",${e.photo_question_id})`;
         connection.query(sqlOption, (error) => {
           if (error) throw error;
         });
