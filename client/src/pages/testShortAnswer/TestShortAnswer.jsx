@@ -16,10 +16,10 @@ export const TestShortAnswer = () => {
 
   useEffect(() => {
     axios
-    .get("http://localhost:4000/question/allQuestionsFromTypeOne")
+    .get(`http://localhost:4000/question/allFromTest/${test_id}`)
     .then((res)=>{console.log(res)
-    setQuestions(res.data)
-    let provisionalAnswer = res.data.map((elem)=>{return(
+    setQuestions(res.data.resultQuestion)
+    let provisionalAnswer = res.data.resultQuestion.map((elem)=>{return(
       {
           test_id: elem.test_id,
           question_id: elem.question_id,

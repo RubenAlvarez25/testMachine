@@ -11,6 +11,7 @@ var testRouter = require("./routes/test");
 var questionRouter = require("./routes/question");
 var photoQuestionRouter = require("./routes/photo_question");
 var questionOptionRouter = require("./routes/questionOption");
+var answerRouter = require("./routes/answer");
 
 var app = express();
 app.use(
@@ -35,6 +36,7 @@ app.use("/test", testRouter);
 app.use("/question", questionRouter);
 app.use("/photo_question", photoQuestionRouter);
 app.use("/questionOption", questionOptionRouter);
+app.use("/answer", answerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

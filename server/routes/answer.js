@@ -16,16 +16,19 @@ router.get("/oneUserAnswer/:user_id", AnswerController.oneUserAnswer);
 //localhost:4000/answer/oneAnswer/:answer_id
 router.get("/oneAnswer/:answer_id", AnswerController.selectOneAnswer);
 
-//6. get answer with photo
+//4. get answer with photo
 //localhost:4000/answer/getAnwsersColorimetria/:user_id
 router.get("/getAnswerPhoto/:user_id", AnswerController.getAnswersPhoto);
 
-//7.-get answers by test with text
+//5.-get answers by test with text
 //localhost:4000/answer/getAnswerText/:user_id
 router.get("/getAnswerText/:user_id", AnswerController.getAnswerText);
 
-//8.-get answers by test with options
+//6.-get answers by test with options
 //localhost:4000/answer/getAnswerOption/:user_id
 router.get("/getAnswerOption/:user_id", AnswerController.getAnswerOption);
 
+//7.-get answes by test
+//localhost:4000/answer/getAnswerByTest/:test_id
+router.get("/getAnswerByTest/:test_id", AnswerController.getAnswerByTest);
 module.exports = router;
