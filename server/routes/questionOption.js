@@ -23,13 +23,6 @@ router.post(
   questionOptionControllers.createQuestionOption
 );
 
-//4.- editQuestionOption
-//localhost:4000/questionOptions/editQuestionOption
-router.put(
-  "/editQuestionOption/:question_option_id",
-  questionOptionControllers.editQuestionOption
-);
-
 //5.- deleteQuestionOption
 //localhost:4000/questionOptions/deleteQuestionOption
 router.delete(
@@ -38,7 +31,7 @@ router.delete(
 );
 
 //6. get the photo_question_image to show
-//localhost:4000/questionOption//getOptions/:question_id
+//localhost:4000/questionOptions/getOptions/:question_id
 router.get("/getOptions/:question_id", questionOptionControllers.getOptions);
 
 module.exports = router;

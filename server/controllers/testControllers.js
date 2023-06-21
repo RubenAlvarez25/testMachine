@@ -11,8 +11,6 @@ class TestControllers {
       req.body.type = parseInt(1);
     } else if (req.body.type === "Multiple Choice Tests") {
       req.body.type = parseInt(2);
-    } else if (req.body.type === "Multiple Image Choice Tests") {
-      req.body.type = parseInt(3);
     }
     let sql = `INSERT INTO test (test_name,type) VALUES ('${test_name}',${parseInt(
       req.body.type
@@ -63,6 +61,7 @@ class TestControllers {
       console.log(result);
     });
   };
+
   //5.erase one test
   //localhost:4000/test/deleteTest/:test_id
   deleteTest = (req, res) => {
@@ -74,6 +73,7 @@ class TestControllers {
       error ? res.status(400).json({ error }) : res.status(200).json(result);
     });
   };
+
   //6.filter test by type
   //localhost:4000/test/getTestTypeOne
   getTestTypeOne = (req, res) => {

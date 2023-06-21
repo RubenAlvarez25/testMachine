@@ -34,36 +34,15 @@ class QuestionOptionControllers {
       test_id,
       question_id,
       question_option_id,
-      photo_question_id,
+
       option_test_name,
     } = req.body;
 
     let sql = `INSERT INTO question_option (test_id, question_id, question_option_id, option_test_name) VALUES ("${test_id}", "${question_id}", "${question_option_id}", "${option_test_name}")`;
-    if (photo_question_id != undefined) {
-      sql = `INSERT INTO question_option (test_id, question_id, question_option_id,photo_question_id, option_test_name) VALUES ("${test_id}", "${question_id}", "${question_option_id}","${photo_question_id}", "${option_test_name}")`;
-    }
+
     connection.query(sql, (error, result) => {
       console.log(error);
       error ? res.status(400).json({ error }) : res.status(201).json(result);
-    });
-  };
-
-  // 4.- Editar una question option
-  //localhost:4000/questionOptions/editQuestionOption/:question_option_id
-
-  editQuestionOption = (req, res) => {
-    let question_option_id = req.params.question_option_id;
-
-    const { test_id, question_id, photo_question_id, option_test_name } =
-      req.body;
-
-    let sql = `UPDATE question_option SET test_id = "${test_id}", question_id = "${question_id}", photo_question_id = "${photo_question_id}", option_test_name = "${option_test_name}" WHERE question_option_id = "${question_option_id}"`;
-
-    connection.query(sql, (error, result) => {
-      if (error) console.log(error);
-      error
-        ? res.status(400).json({ error })
-        : res.status(200).json({ result });
     });
   };
 

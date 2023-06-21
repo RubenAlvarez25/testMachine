@@ -9,7 +9,6 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var testRouter = require("./routes/test");
 var questionRouter = require("./routes/question");
-var photoQuestionRouter = require("./routes/photo_question");
 var questionOptionRouter = require("./routes/questionOption");
 var answerRouter = require("./routes/answer");
 
@@ -34,8 +33,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/test", testRouter);
 app.use("/question", questionRouter);
-app.use("/photo_question", photoQuestionRouter);
-app.use("/questionOption", questionOptionRouter);
+app.use("/questionOptions", questionOptionRouter);
 app.use("/answer", answerRouter);
 
 // catch 404 and forward to error handler

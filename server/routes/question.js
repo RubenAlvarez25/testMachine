@@ -18,10 +18,6 @@ router.get("/allFromTest/:test_id", questionControllers.allFromTest);
 //localhost:4000/question/allQuestion
 router.get("/allQuestion", questionControllers.setAllQuestion);
 
-//5. edit question
-//localhost:4000/question/editQuestion/:question_id
-router.put("/editQuestion/", questionControllers.editQuestion);
-
 //6.erase one question
 //localhost:4000/question/deleteQuestion/:question_id
 router.delete(
