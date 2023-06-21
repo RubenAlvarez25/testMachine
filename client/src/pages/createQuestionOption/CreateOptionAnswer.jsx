@@ -19,9 +19,8 @@ export const CreateOptionAnswer = ({question_id,questions,setQuestions,}) => {
       };
 
    const addOption = () => {
-
+    
         let objetoProvisional = {...opcion,question_option_id:idGen(),question_id:question_id}
-
         let arrayProvisional = [...opciones,objetoProvisional]
 
         setOpciones(arrayProvisional)
@@ -33,10 +32,7 @@ export const CreateOptionAnswer = ({question_id,questions,setQuestions,}) => {
         }
         setOpcion({...opcion})
     })
-
     setQuestions(resFinal)
-    setReset("")
-   
 }
 
 
@@ -60,6 +56,7 @@ const delOption = (i) => {
 
   return (
     <div className="container-fluid">
+      {/* INPUT */}
         <div className="row">
             <div className="col-12">
             <input 
@@ -73,6 +70,7 @@ const delOption = (i) => {
             add answers</button>
             </div>
         </div>
+        {/* OPTION ANSWER MAP */}
         {opciones.map((e)=>{return(
         <div className="row">
             <div className="col-6">
@@ -82,13 +80,8 @@ const delOption = (i) => {
             <button onClick={() => delOption(e.question_option_id)}
             >X</button>               
             </div>
-
         </div>
         )})}
-        
-            
-         
         </div>
-    
   )
 }

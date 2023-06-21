@@ -57,7 +57,7 @@ export const TestShortAnswer = () => {
     .post('http://localhost:4000/answer/createAnswer',answers)
     .then((res)=>{
         console.log(res)
-        navigate("/Success")
+        navigate("/TestComplete")
     })
     .catch((err)=>{console.log(err)})
 

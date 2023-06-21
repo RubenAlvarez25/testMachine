@@ -24,8 +24,6 @@ export const CreateTest = () => {
             navigate(`/CreateQuestionText/${res.data.insertId}/${test.test_name}`)
         }else if(test.type === "Multiple Choice Tests"){
             navigate(`/CreateQuestionOption/${res.data.insertId}/${test.test_name}`)
-        }else if (test.type === "Multiple Image Choice Tests"){
-            navigate(`/CreatePhotoQuestion/${res.data.insertId}/${test.test_name}`)
         }
     
     })
@@ -34,12 +32,14 @@ export const CreateTest = () => {
 
   return (
     <div className="container-fluid">
+        {/* TITLE */}
         <div className="row">
             <div className="col-12 d-flex flex-column justify-content-center align-items-center p-3">
             <h3>Create Test</h3>
             <p>our first step is to create a test, all test has a name so...</p>
             </div> 
         </div>
+        {/* INPUT TEST NAME */}
         <div className="row">
             <div className="col-12 d-flex flex-column justify-content-center align-items-center p-3">
                 <input   
@@ -51,7 +51,8 @@ export const CreateTest = () => {
                 value={test.test_name}/>
             </div>
             <div className="col-12 d-flex flex-column justify-content-center align-items-center pt-3">
-                brilliant ! now choose wich kind of test u want !
+                <h5>brilliant ! now choose wich kind of test u want !</h5>
+                {/* SELECT OPTIONS */}
             <div className="col-12 d-flex flex-column justify-content-center align-items-center">
             <select onChange={handleChange} value={test.type} name="type" id="">
                   <option disabled value="">choose</option>
@@ -60,14 +61,11 @@ export const CreateTest = () => {
                   <option >
                   Multiple Choice Tests
                   </option>
-                  <option >
-                  Multiple Image Choice Tests
-                  </option>
             </select>
             </div>
-          
             </div>
         </div>
+        {/* BUTTON */}
         <div className="row">
             <div className="col-12">
                 <button onClick={onSubmit} >Create Test !</button>

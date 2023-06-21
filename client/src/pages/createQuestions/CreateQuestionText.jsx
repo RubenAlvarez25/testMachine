@@ -23,6 +23,7 @@ export const CreateQuestionText = () => {
   }
 
   const onSubmit = () => {
+    //question_id generator mothod, same in utils
     let question_id = Date.now().toString();
     let prueba = parseInt(
       question_id.slice(question_id.length - 8, question_id.length)

@@ -27,6 +27,15 @@ export const CreateQuestionOption = () => {
     setQuestion({...question,[name]:value,test_id:test_id,test_name:test_name})
   }
 
+  const delQuestion = (i) => {
+    
+    let arrayDummi = [...questions];
+    let newArray = arrayDummi.filter((e) => e.
+    question_id !== i);
+
+    setQuestions(newArray);
+  };
+  
   const onSubmit = () => { 
     
     const data = {...question,question_id:idGen()}
@@ -87,24 +96,36 @@ export const CreateQuestionOption = () => {
       <div className="col-12 d-flex flex-column align-items-center jsutify-content-center">
         <button onClick={onSubmit} >Add to the list</button>
       </div>
-    </div>{questions.map((e,index)=>{return(
-    <div className="row">
-          <div className="col-4 d-flex flex-column align-items-center jsutify-content-center">
-          <h4>{e.question_name}</h4>
-          <h5>{e.question_text}</h5>
-          </div>
-          <div className="col-4  d-flex align-items-center jsutify-content-center">
-            <button onClick={()=>setShowOptions(!showOptions)} > add option</button>
-          </div>
-          <div className="col-4 d-flex align-items-center jsutify-content-center">
-          {showOptions && 
-          <CreateOptionAnswer 
-          question_id={e.question_id}
-          questions={questions}
-          setQuestions={setQuestions}/>}
-           </div>
-    </div> 
-       )})}
+    </div>
+    
+    <table className="table">
+    <tbody>
+    {questions.map((e, index) => {
+      return (
+        <tr className="row">
+          <td className="col-4 d-flex flex-column align-items-center justify-content-center">
+            <button onClick={()=>delQuestion(e.question_id)}>X</button>
+            <h4>{e.question_name}</h4>
+            <h5>{e.question_text}</h5>
+          </td>
+          <td className="col-4 d-flex align-items-center justify-content-center">
+            <button onClick={() => setShowOptions(!showOptions)}>add option</button>
+          </td>
+          <td className="col-4 d-flex align-items-center justify-content-center">
+            {showOptions && (
+              <CreateOptionAnswer
+                question_id={e.question_id}
+                questions={questions}
+                setQuestions={setQuestions}
+              />
+            )}
+          </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
+
        <div className="row">
         <div className="col-12">
         <button 
@@ -114,4 +135,5 @@ export const CreateQuestionOption = () => {
        </div>
   </div>
   )
+  
 }
